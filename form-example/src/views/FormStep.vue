@@ -1,20 +1,22 @@
-<script setup lang="ts">
+<script setup lang="ts" name="FormStep">
   import { computed } from 'vue'
-  import { RouterLink, RouterView } from 'vue-router'
-  import FormData from '../constants/FormData.ts'
-  import formStore from '../store/FormStore.ts'
+  import { RouterLink } from 'vue-router'
+  import FormData from '../constants/FormData'
+  import formStore from '../store/FormStore'
+  import type { FormSubmitData } from '../types/FormSubmitData.d'
 
   const props = defineProps<{
     title: string
     stepIdx: number,
     form: any,
-    validator: (data) => string[],
+    validator: (data: FormSubmitData) => string[],
   }>()
 
   const stepValidationErrors = computed(() => props.validator(formStore.getters.formSubmitData));
   const anyValidationErrors = computed(() => FormData.steps.some((step) => step.validator(formStore.getters.formSubmitData).length > 0));
 
   function submit() {
+    // TODO - Make an API call here
     alert(JSON.stringify(formStore.getters.formSubmitData));
   }
 </script>

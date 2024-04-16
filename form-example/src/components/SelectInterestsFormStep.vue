@@ -1,7 +1,6 @@
 <script setup lang="ts">
-  import FormData from '../constants/FormData.ts'
   import { computed, ref } from 'vue'
-  import formStore from '../store/FormStore.ts'
+  import formStore from '../store/FormStore'
 
   const INTERESTS = [
     {
@@ -61,7 +60,7 @@
   const selectedCategoryIdx = ref(firstCategoryWithSelection >= 0 ? firstCategoryWithSelection : 0);
   const categoryInterests = computed(() => INTERESTS[selectedCategoryIdx.value].children);
 
-  function toggleInterest(id) {
+  function toggleInterest(id: string) {
     formStore.commit('toggleInterest', id);
   }
 

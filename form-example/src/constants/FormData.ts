@@ -1,6 +1,7 @@
 import SignUpFormStep from '../components/SignUpFormStep.vue';
 import SelectInterestsFormStep from '../components/SelectInterestsFormStep.vue';
 import SubscriptionFormStep from '../components/SubscriptionFormStep.vue';
+import type { FormSubmitData } from '../types/FormSubmitData.d';
 
 class FormData {
 
@@ -9,7 +10,7 @@ class FormData {
       name: 'sign-up',
       title: 'Sign Up',
       form: SignUpFormStep,
-      validator: (formData) => {
+      validator: (formData: FormSubmitData) => {
         const errors = [];
         if (formData.name == '') {
           errors.push('Name is required');
@@ -24,7 +25,7 @@ class FormData {
       name: 'select-interests',
       title: 'Select Interests',
       form: SelectInterestsFormStep,
-      validator: (formData) => {
+      validator: (formData: FormSubmitData) => {
         const errors = [];
         if (formData.interests.length === 0) {
           errors.push('Select at least one interest');
@@ -36,7 +37,7 @@ class FormData {
       name: 'subscription',
       title: 'Subscription',
       form: SubscriptionFormStep,
-      validator: (formData) => {
+      validator: (formData: FormSubmitData) => {
         const errors = [];
         if (formData.donation !== '' && formData.donation < 0) {
           errors.push('Donation cannot be negative');

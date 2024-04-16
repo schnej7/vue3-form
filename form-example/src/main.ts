@@ -3,7 +3,7 @@ import './assets/main.css'
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
-import formStore from './store/FormStore.ts'
+import formStore from './store/FormStore'
 
 const app = createApp(App)
 

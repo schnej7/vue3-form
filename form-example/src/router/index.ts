@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import FormData from '../constants/FormData.ts'
+import FormData from '../constants/FormData'
 import HomeView from '../views/HomeView.vue'
 
 const router = createRouter({

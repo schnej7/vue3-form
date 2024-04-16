@@ -1,6 +1,5 @@
 <script setup lang="ts">
-  import FormData from '../constants/FormData.ts'
-  import formStore from '../store/FormStore.ts'
+  import formStore from '../store/FormStore'
   import { ref, watch } from 'vue'
 
   defineProps<{

@@ -1,6 +1,6 @@
 <script setup lang="ts">
-  import { RouterLink, RouterView } from 'vue-router'
-  import FormData from '../constants/FormData.ts'
+  import { RouterLink } from 'vue-router'
+  import FormData from '../constants/FormData'
 
   const firstStep = FormData.steps[0];
 </script>

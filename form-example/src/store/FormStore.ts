@@ -1,7 +1,16 @@
+import type { FormSubmitData } from '../types/FormSubmitData.d'
 import { createStore } from 'vuex'
 
+type State = {
+  name: string,
+  email: string,
+  interests: Set<string>,
+  donation: number | '',
+  frequency: number | '',
+}
+
 export default createStore({
-  state () {
+  state(): State {
     return {
       name: '',
       email: '',
@@ -11,49 +20,49 @@ export default createStore({
     }
   },
   getters: {
-    name(state) {
+    name(state: State) {
       return state.name;
     },
-    email(state) {
+    email(state: State) {
       return state.email;
     },
-    interests(state) {
+    interests(state: State) {
       return state.interests;
     },
-    donation(state) {
+    donation(state: State) {
       return state.donation;
     },
-    frequency(state) {
+    frequency(state: State) {
       return state.frequency;
     },
-    formSubmitData(state) {
+    formSubmitData(state: State): FormSubmitData {
       return {
         name: state.name,
         email: state.email,
-        frequency: state.frequency,
+        frequency: state.frequency as number,
         donation: state.donation || 0,
         interests: Array.from(state.interests.keys()),
       };
     },
   },
   mutations: {
-    setName(state, name) {
+    setName(state: State, name: string) {
       state.name = name;
     },
-    setEmail(state, email) {
+    setEmail(state: State, email: string) {
       state.email = email;
     },
-    toggleInterest(state, id) {
+    toggleInterest(state: State, id: string) {
       if (state.interests.has(id)) {
         state.interests.delete(id);
       } else {
         state.interests.add(id);
       }
     },
-    setDonation(state, donation) {
+    setDonation(state: State, donation: number | '') {
       state.donation = donation;
     },
-    setFrequency(state, frequency) {
+    setFrequency(state: State, frequency: number | '') {
       state.frequency = frequency;
     },
   },
