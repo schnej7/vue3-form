@@ -19,7 +19,7 @@
 
 <template>
   <div class="sign-up-form-step">
-    <div class="flex-column align-center pt-6">
+    <div class="flex-column align-center justify-center text-center pt-6">
       <h2>Account Information</h2>
       <input
         v-model="name"

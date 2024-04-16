@@ -100,9 +100,9 @@
 
 <style scoped>
 .interest {
-  height: 160px;
-  width: 160px;
-  line-height: 160px;
+  height: 110px;
+  width: 110px;
+  line-height: 110px;
   text-align: center;
   user-select: none;
   cursor: pointer;
@@ -118,6 +118,12 @@
   &.selected {
     background-color: #226622;
     color: #fff;
+  }
+
+  @media (min-width: 1024px) {
+    height: 160px;
+    width: 160px;
+    line-height: 160px;
   }
 }
 </style>
