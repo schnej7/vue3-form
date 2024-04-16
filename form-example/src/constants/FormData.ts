@@ -1,5 +1,6 @@
 import SignUpFormStep from '../components/SignUpFormStep.vue';
 import SelectInterestsFormStep from '../components/SelectInterestsFormStep.vue';
+import SubscriptionFormStep from '../components/SubscriptionFormStep.vue';
 
 class FormData {
 
@@ -27,6 +28,25 @@ class FormData {
         const errors = [];
         if (formData.interests.length === 0) {
           errors.push('Select at least one interest');
+        }
+        return errors;
+      },
+    },
+    {
+      name: 'subscription',
+      title: 'Subscription',
+      form: SubscriptionFormStep,
+      validator: (formData) => {
+        const errors = [];
+        if (formData.donation !== '' && formData.donation < 0) {
+          errors.push('Donation cannot be negative');
+        }
+        if (formData.frequency === '') {
+          errors.push('Frequency is required');
+        } else if (formData.frequency !== null && formData.frequency <= 0) {
+          errors.push('Frequency must be greater than 0');
+        } else if (formData.frequency !== null && formData.frequency % 1 !== 0) {
+          errors.push('Frequency must be a whole number');
         }
         return errors;
       },

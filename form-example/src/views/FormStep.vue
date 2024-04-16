@@ -12,7 +12,7 @@
   }>()
 
   const stepValidationErrors = computed(() => props.validator(formStore.getters.formSubmitData));
-  const validationErrors = computed(() => FormData.steps.some((step) => step.validator(formStore.getters.formSubmitData).length > 0));
+  const anyValidationErrors = computed(() => FormData.steps.some((step) => step.validator(formStore.getters.formSubmitData).length > 0));
 
   function submit() {
     alert(JSON.stringify(formStore.getters.formSubmitData));
@@ -49,7 +49,7 @@
 
     <button
       class="mt-6"
-      :disabled="validationErrors"
+      :disabled="anyValidationErrors"
       @click="submit"
     >
       Submit
