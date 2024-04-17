@@ -29,7 +29,6 @@
 
 <template>
   <main>
-    <h1 class="title text-center">{{ title }}</h1>
     <div class="form-step-links text-center align-center">
       <RouterLink
         v-for="(step, idx) in FormData.steps"
