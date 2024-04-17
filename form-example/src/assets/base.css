@@ -1,3 +1,10 @@
+a.disabled {
+  color: #666;
+  cursor: default;
+  pointer-events: none;
+  user-select: none;
+}
+
 div.d-flex {
   display: flex;
 }
@@ -26,6 +33,10 @@ div.flex-column {
 
 .text-center {
   text-align: center;
+}
+
+.align-middle {
+  vertical-align: middle;
 }
 
 .ml-2 {

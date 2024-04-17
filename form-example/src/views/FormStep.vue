@@ -14,6 +14,12 @@
 
   const stepValidationErrors = computed(() => props.validator(formStore.getters.formSubmitData));
   const anyValidationErrors = computed(() => FormData.steps.some((step) => step.validator(formStore.getters.formSubmitData).length > 0));
+  const previousStep = computed(() => {
+    return props.stepIdx - 1 >= 0 ? FormData.steps[props.stepIdx - 1] : null;
+  });
+  const nextStep = computed(() => {
+    return props.stepIdx + 1 < FormData.steps.length ? FormData.steps[props.stepIdx + 1] : null;
+  });
 
   function submit() {
     // TODO - Make an API call here
@@ -49,13 +55,26 @@
       </div>
     </div>
 
-    <button
-      class="mt-6"
-      :disabled="anyValidationErrors"
-      @click="submit"
-    >
-      Submit
-    </button>
+    <div class="d-flex align-center mt-6 text-center">
+      <RouterLink
+        :class="['step-link', { disabled: !previousStep }]"
+        :to="`/${previousStep ? previousStep.name : ''}`"
+      >
+        Previous Step
+      </RouterLink>
+      <button
+        :disabled="anyValidationErrors"
+        @click="submit"
+      >
+        Submit
+      </button>
+      <RouterLink
+        :class="['step-link', { disabled: !nextStep || stepValidationErrors.length }]"
+        :to="`/${nextStep ? nextStep.name : ''}`"
+      >
+        Next Step
+      </RouterLink>
+    </div>
   </main>
 </template>
 
