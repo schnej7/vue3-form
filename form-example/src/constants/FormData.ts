@@ -16,7 +16,7 @@ class FormData {
           errors.push('Name is required');
         }
         if (!/\S+@\S+\.\S+/.test(formData.email)) {
-          errors.push('Email is malformed');
+          errors.push('Invalid email address');
         }
         return errors;
       },
@@ -28,7 +28,7 @@ class FormData {
       validator: (formData: FormSubmitData) => {
         const errors = [];
         if (formData.interests.length === 0) {
-          errors.push('Select at least one interest');
+          errors.push('At least one interest selection is required');
         }
         return errors;
       },
@@ -44,8 +44,8 @@ class FormData {
         }
         if (formData.frequency === '') {
           errors.push('Frequency is required');
-        } else if (formData.frequency !== null && formData.frequency <= 0) {
-          errors.push('Frequency must be greater than 0');
+        } else if (formData.frequency !== null && (formData.frequency <= 0 || formData.frequency >= 10)) {
+          errors.push('Frequency must be between 0 and 10');
         } else if (formData.frequency !== null && formData.frequency % 1 !== 0) {
           errors.push('Frequency must be a whole number');
         }
