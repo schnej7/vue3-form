@@ -44,6 +44,9 @@ class FormData {
         } else if (formData.donation !== null && !/^\s*-?\d+(\.\d{1,2})?\s*$/.test(`${formData.donation}`)) {
           errors.push('Donation cannot contain fractional cents');
         }
+        if (formData.frequency === '-') {
+          errors.push('Number of Jokes selection is required');
+        }
         return errors;
       },
     },

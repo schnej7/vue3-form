@@ -15,7 +15,7 @@
     formStore.commit('setFrequency', frequency);
   });
 
-  const frequencyOptions = computed(() => Array.from({ length: 9}, (v,k) => k+1));
+  const frequencyOptions = computed(() => [ '-', ...Array.from({ length: 9}, (v,k) => k+1) ]);
 </script>
 
 <template>
