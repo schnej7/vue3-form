@@ -13,6 +13,10 @@
         Code for this example is available on<a href="https://github.com/schnej7/vue3-form">GitHub</a>
       </div>
 
+      <br />
+      <div>
+        Sign up for a subscription to receive jokes:
+      </div>
       <h3>
         <RouterLink :to="`/${firstStep.name}`">Start Here</RouterLink>
       </h3>
