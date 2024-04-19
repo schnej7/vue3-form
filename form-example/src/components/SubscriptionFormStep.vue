@@ -32,7 +32,7 @@
         />
       </div>
       <div class="p-relative d-flex align-center mb-4">
-        <label>Number of Jokes:</label>
+        <label>Number of Jokes per day:</label>
         <select
           v-model="frequency"
           type="number"
