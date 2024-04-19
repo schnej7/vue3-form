@@ -31,7 +31,7 @@
       <input
         v-model="frequency"
         class="mb-4"
-        placeholder="Updates per-day"
+        placeholder="Email updates per-day"
         type="number"
         step="1"
       />

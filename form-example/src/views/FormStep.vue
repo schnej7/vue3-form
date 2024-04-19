@@ -1,6 +1,7 @@
 <script setup lang="ts" name="FormStep">
   import { computed } from 'vue'
   import { RouterLink } from 'vue-router'
+  import router from '../router'
   import FormData from '../constants/FormData'
   import formStore from '../store/FormStore'
   import type { FormSubmitData } from '../types/FormSubmitData.d'
@@ -23,7 +24,8 @@
 
   function submit() {
     // TODO - Make an API call here
-    alert(JSON.stringify(formStore.getters.formSubmitData));
+    alert(`Thank you for your subscription! ${JSON.stringify(formStore.getters.formSubmitData)}`);
+    router.push('/');
   }
 </script>
 
@@ -60,11 +62,19 @@
         :to="`/${previousStep ? previousStep.name : ''}`"
       />
       <button
+        v-if="!anyValidationErrors || !nextStep"
         :disabled="anyValidationErrors"
         @click="submit"
       >
         Submit
       </button>
+      <RouterLink
+        v-else
+        :class="['step-link', { disabled: stepValidationErrors.length }]"
+        :to="`/${nextStep ? nextStep.name : ''}`"
+      >
+        Next
+      </RouterLink>
       <RouterLink
         :class="['arrow right', { disabled: !nextStep || stepValidationErrors.length }]"
         :to="`/${nextStep ? nextStep.name : ''}`"
