@@ -3,5 +3,5 @@ export type FormSubmitData = {
   email: string;
   interests: string[];
   donation: number | '';
-  frequency: number | '';
+  frequency: number | '-';
 }
