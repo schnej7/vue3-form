@@ -41,6 +41,8 @@ class FormData {
         const errors = [];
         if (formData.donation !== '' && formData.donation < 0) {
           errors.push('Donation cannot be negative');
+        } else if (formData.donation !== null && formData.donation * 100 % 1 !== 0) {
+          errors.push('Donation cannot contain fractional cents');
         }
         if (formData.frequency === '') {
           errors.push('Frequency is required');
