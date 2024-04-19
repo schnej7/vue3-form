@@ -41,7 +41,7 @@ class FormData {
         const errors = [];
         if (formData.donation !== '' && formData.donation < 0) {
           errors.push('Donation cannot be negative');
-        } else if (formData.donation !== null && !/^\s*-?\d+(\.\d{1,2})?\s*$/.test(formData.donation)) {
+        } else if (formData.donation !== null && !/^\s*-?\d+(\.\d{1,2})?\s*$/.test(`${formData.donation}`)) {
           errors.push('Donation cannot contain fractional cents');
         }
         return errors;

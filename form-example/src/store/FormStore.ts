@@ -6,7 +6,7 @@ type State = {
   email: string,
   interests: Set<string>,
   donation: number | '',
-  frequency: number | '',
+  frequency: number,
 }
 
 export default createStore({
@@ -16,7 +16,7 @@ export default createStore({
       email: '',
       interests: new Set(),
       donation: '',
-      frequency: '1',
+      frequency: 1,
     }
   },
   getters: {
@@ -39,7 +39,7 @@ export default createStore({
       return {
         name: state.name,
         email: state.email,
-        frequency: state.frequency as number,
+        frequency: state.frequency,
         donation: state.donation || 0,
         interests: Array.from(state.interests.keys()),
       };
@@ -62,7 +62,7 @@ export default createStore({
     setDonation(state: State, donation: number | '') {
       state.donation = donation;
     },
-    setFrequency(state: State, frequency: number | '') {
+    setFrequency(state: State, frequency: number) {
       state.frequency = frequency;
     },
   },
