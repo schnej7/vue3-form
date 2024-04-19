@@ -16,7 +16,7 @@ export default createStore({
       email: '',
       interests: new Set(),
       donation: '',
-      frequency: '',
+      frequency: '1',
     }
   },
   getters: {

@@ -44,13 +44,6 @@ class FormData {
         } else if (formData.donation !== null && (formData.donation as number) * 100 % 1 !== 0) {
           errors.push('Donation cannot contain fractional cents');
         }
-        if (formData.frequency === '') {
-          errors.push('Frequency is required');
-        } else if (formData.frequency !== null && (formData.frequency <= 0 || formData.frequency >= 10)) {
-          errors.push('Frequency must be between 0 and 10');
-        } else if (formData.frequency !== null && formData.frequency % 1 !== 0) {
-          errors.push('Frequency must be a whole number');
-        }
         return errors;
       },
     },

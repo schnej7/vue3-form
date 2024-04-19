@@ -5,6 +5,10 @@ a.disabled {
   user-select: none;
 }
 
+div.p-relative {
+  position: relative;
+}
+
 div.d-flex {
   display: flex;
 }

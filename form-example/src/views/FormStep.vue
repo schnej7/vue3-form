@@ -60,6 +60,7 @@
       <RouterLink
         :class="['arrow left', { disabled: !previousStep }]"
         :to="`/${previousStep ? previousStep.name : ''}`"
+        tabindex="-1"
       />
       <button
         v-if="!anyValidationErrors || !nextStep"
@@ -72,12 +73,14 @@
         v-else
         :class="['step-link', { disabled: stepValidationErrors.length }]"
         :to="`/${nextStep ? nextStep.name : ''}`"
+        tabindex="-1"
       >
         Next
       </RouterLink>
       <RouterLink
         :class="['arrow right', { disabled: !nextStep || stepValidationErrors.length }]"
         :to="`/${nextStep ? nextStep.name : ''}`"
+        tabindex="-1"
       />
     </div>
   </main>
